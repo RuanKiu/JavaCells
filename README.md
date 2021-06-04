@@ -13,5 +13,5 @@ javac *.java
 
 JAR compliation:
 ````
-java -jar Javacells.jar
+jar cfm Javacells.jar Manifest.txt ./*.class 
 ````
