@@ -5,7 +5,7 @@ public class Engine
   public Engine(int w, int h)
   {
     map = new boolean[h][w];
-    populationFactor = 0.9;
+    populationFactor = 0.85;
   }
   public void setAlive(int x, int y)
   {
@@ -13,6 +13,7 @@ public class Engine
   }
   public void calculateFrame()
   {
+    boolean[][] temp = new boolean[map.length][map[0].length];
     for (int r = 0; r < map.length; r++)
     {
       for (int c = 0; c < map[r].length; c++)
@@ -30,14 +31,15 @@ public class Engine
         }
         if (count >= 4 || count <= 1)
         {
-          map[r][c] = false;
+          temp[r][c] = false;
         }
         else 
         {
-          map[r][c] = true;
+          temp[r][c] = true;
         }
       }
     }
+    map = temp;
   }
   public boolean[][] getMap()
   {
